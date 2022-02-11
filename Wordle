@@ -1,0 +1,67 @@
+import random
+print('Welcome to Python Wordle')
+#List of possible words that could appear
+possible_choices = ['PEACH', 'WORLD', 'CAKES', 'WORDS', 'SQUID', 'MANGO', 'SHOCK', 'RANCH', 'CHAIR', 'ADULT', 'BREAD', 'ABUSE', 'AGENT', 'ANGER', 'AUDIO', 'BEACH', 'BIRTH', 'BLOCK', 'BOARD', 'BRAIN', 'BREAK', 'BROWN', 'BUYER', 'CAUSE', 'CHAIN', 'CHAIR', 'CHEST', 'CHIEF', 'CHILD', 'CHINA', 'CLAIM', 'CLOCK', 'COACH', 'COAST', 'COURT', 'COVER', 'CREAM', 'CRIME', 'CROWD', 'CROWN', 'DANCE', 'DEATH', 'DEPTH', 'DOUBT', 'DRAFT', 'DREAM', 'DRINK', 'DRIVE', 'EARTH', 'ENTRY', 'FAITH', 'FAULT', 'FIELD', 'FIGHT', 'FINAL', 'FOCUS', 'FORCE', 'FRAME', 'FRANK', 'FRONT', 'FRUIT', 'GHOST' 'GRANT', 'GROUP', 'GUIDE', 'HEART', 'HORSE', 'HOTEL', 'HOUSE', 'IMAGE', 'INDEX', 'INPUT', 'JUDGE', 'KNIFE', 'LAYER', 'LEWIS', 'LIGHT', 'LUNCH', 'MAJOR', 'MARCH', 'MATCH', 'METAL', 'MODEL', 'MONEY', 'MONTH', 'MOUTH', 'MUSIC', 'MUNCH', 'NIGHT', 'NOISE', 'NORTH', 'NOVEL', 'NURSE', 'OTHER', 'OWNER', 'PANEL', 'PARTY', 'PHASE', 'PHONE', 'PIECE', 'PILOT', 'PITCH', 'PLACE', 'PLANE', 'PLANT', 'PLATE', 'POINT', 'POUND', 'POWER', 'PRICE', 'PRIDE', 'PRIZE', 'RADIO', 'RANGE', 'RATIO', 'REPLY', 'RIGHT', 'RIVER', 'ROUND', 'ROUTE', 'RUGBY', 'SCALE', 'SCOPE', 'SCORE', 'SHAPE', 'SHARE', 'SHIFT', 'SHIRT', 'SIGHT', 'SIMON', 'SMITH', 'SMOKE', 'SOUND', 'SOUTH', 'SPACE', 'SPITE', 'SPORT', 'SQUAD', 'STAGE', 'STEAM', 'STOCK', 'STONE', 'STORE', 'STUDY', 'STYLE', 'SUGAR', 'TABLE', 'THING', 'TOUCH', 'TOWER', 'TRACK', 'TRADE', 'TRAIN', 'TREND', 'TRIAL', 'TRAIL', 'UNCLE', 'UNITY', 'VALUE', 'VIDEO', 'VOICE', 'WASTE', 'WATCH', 'WATER', 'WHILE', 'WHITE', 'WHOLE', 'WOMAN', 'YOUTH', 'ALCON', 'AUGHT', 'OUGHT', 'THAME', 'THINE', 'WHOSE', 'YOURS', 'ADMIT', 'ADOPT', 'ALTER', 'ARGUE', 'ARISE', 'AVOID', 'BEGIN', 'BLAME', 'BREAK', 'BRING', 'BUILD', 'BURST', 'CAUSE', 'CLAIM', 'CLEAN', 'CLEAR', 'CLIMB', 'CLOSE', 'COUNT', 'COVER', 'DANCE', 'DOUBT', 'DRINK', 'DRIVE', 'ENJOY', 'EXIST', 'FIGHT', 'FOCUS', 'FORCE', 'IMPLY', 'JUDGE', 'LAUGH', 'LEARN', 'POINT', 'PROVE', 'RAISE', 'REACH', ]
+#Chooses a random word from the list of possible choices
+word = list(possible_choices[int(random.randint(0, len(possible_choices) - 1))])
+right_place = []
+wrong_place = []
+wrong_letter = []
+word_visual = ['_', '_', '_', '_', '_']
+
+lives = 6
+tries = 1
+#Constant loop until guess == True
+guess = False
+while guess == False:
+  print('Try ' + ' ' + str(tries))
+  user_guess = list((input('Guess the word: ')).upper())
+  #Checks if the word is longer than 5 letters
+  if len(user_guess) < 5:
+    print("Word is too short")
+  elif len(user_guess) > 5:
+    print("Word is too long")
+  else:
+    #Zips the two lists to compare each letter
+    zippedComparison = zip(user_guess, word)
+    zippedList = list(zippedComparison)
+    for x, y in zip(user_guess, word):
+      #Checks if the letter is in the right place
+      if x == y:
+        right_place.append(x)
+        index_word = user_guess.index(x)
+        word_visual[index_word] = x
+      #Checks if the letter is in the wrong place
+      elif x in word and x != y:
+        wrong_place.append(x)
+        index_word = user_guess.index(x)
+        word_visual[index_word] = '🟡'
+      #Checks if the letter is 
+      else:
+        wrong_letter.append(x)
+    if user_guess == word:
+      print('Well done!')
+      guess = True
+    if len(right_place) > 0:
+      print('Right letters: ')
+      for i in (list(dict.fromkeys(right_place))):
+        print(i)
+    if len(wrong_place) > 0:  
+      print('Right letter, wrong place: ')
+      for i in (list(dict.fromkeys(wrong_place))):
+        print(i)
+    list(dict.fromkeys(wrong_letter))        
+    if len(wrong_letter) > 0:
+      print('Wrong letters: ')
+      for i in (list(dict.fromkeys(wrong_letter))):
+        print(i)
+    lives -= 1
+    tries += 1
+    str1 = ''
+    for ele in word_visual:
+      str1 += ele
+    print(str1)
+    if lives == 0:
+      print('This is the correct word')
+      print(word)
+      break
