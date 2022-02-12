@@ -1,0 +1,268 @@
+namespace Namespace {
+    
+    using Random;
+    
+    using System.Collections.Generic;
+    
+    using System;
+    
+    using System.Linq;
+    
+    public static class Module {
+        
+        public static object possible_choices = new List<object> {
+            "PEACH",
+            "WORLD",
+            "CAKES",
+            "WORDS",
+            "SQUID",
+            "MANGO",
+            "SHOCK",
+            "RANCH",
+            "CHAIR",
+            "ADULT",
+            "BREAD",
+            "ABUSE",
+            "AGENT",
+            "ANGER",
+            "AUDIO",
+            "BEACH",
+            "BIRTH",
+            "BLOCK",
+            "BOARD",
+            "BRAIN",
+            "BREAK",
+            "BROWN",
+            "BUYER",
+            "CAUSE",
+            "CHAIN",
+            "CHAIR",
+            "CHEST",
+            "CHIEF",
+            "CHILD",
+            "CHINA",
+            "CLAIM",
+            "CLOCK",
+            "COACH",
+            "COAST",
+            "COURT",
+            "COVER",
+            "CREAM",
+            "CRIME",
+            "CROWD",
+            "CROWN",
+            "DANCE",
+            "DEATH",
+            "DEPTH",
+            "DOUBT",
+            "DRAFT",
+            "DREAM",
+            "DRINK",
+            "DRIVE",
+            "EARTH",
+            "ENTRY",
+            "FAITH",
+            "FAULT",
+            "FIELD",
+            "FIGHT",
+            "FINAL",
+            "FOCUS",
+            "FORCE",
+            "FRAME",
+            "FRANK",
+            "FRONT",
+            "FRUIT",
+            "GHOST",
+            "GRANT",
+            "GROUP",
+            "GUIDE",
+            "HEART",
+            "HORSE",
+            "HOTEL",
+            "HOUSE",
+            "IMAGE",
+            "INDEX",
+            "INPUT",
+            "JUDGE",
+            "KNIFE",
+            "LAYER",
+            "LEWIS",
+            "LIGHT",
+            "LUNCH",
+            "MAJOR",
+            "MARCH",
+            "MATCH",
+            "METAL",
+            "MODEL",
+            "MONEY",
+            "MONTH",
+            "MOUTH",
+            "MUSIC",
+            "MUNCH",
+            "NIGHT",
+            "NOISE",
+            "NORTH",
+            "NOVEL",
+            "NURSE",
+            "OTHER",
+            "OWNER",
+            "PANEL",
+            "PARTY",
+            "PHASE",
+            "PHONE",
+            "PIECE",
+            "PILOT",
+            "PITCH",
+            "PLACE",
+            "PLANE",
+            "PLANT",
+            "PLATE",
+            "POINT",
+            "POUND",
+            "POWER",
+            "PRICE",
+            "PRIDE",
+            "PRIZE",
+            "RADIO",
+            "RANGE",
+            "RATIO",
+            "REPLY",
+            "RIGHT",
+            "RIVER",
+            "ROUND",
+            "ROUTE",
+            "RUGBY",
+            "SCALE",
+            "SCOPE",
+            "SCORE",
+            "SHAPE",
+            "SHARE",
+            "SHIFT",
+            "SHIRT",
+            "SIGHT",
+            "SIMON",
+            "SMITH",
+            "SMOKE",
+            "SOUND",
+            "SOUTH",
+            "SPACE",
+            "SPITE",
+            "SPORT",
+            "SQUAD",
+            "STAGE",
+            "STEAM",
+            "STOCK",
+            "STONE",
+            "STORE",
+            "STUDY",
+            "STYLE",
+            "SUGAR",
+            "TABLE",
+            "THING",
+            "TOUCH",
+            "TOWER",
+            "TRACK",
+            "TRADE",
+            "TRAIN",
+            "TREND",
+            "TRIAL",
+            "TRAIL",
+            "UNCLE",
+            "UNITY",
+            "VALUE",
+            "VIDEO",
+            "VOICE",
+            "WASTE",
+            "WATCH",
+            "WATER",
+            "WHILE",
+            "WHITE",
+            "WHOLE",
+            "WOMAN",
+            "YOUTH",
+            "ALCON",
+            "AUGHT",
+            "OUGHT",
+            "THAME",
+            "THINE",
+            "WHOSE",
+            "YOURS",
+            "ADMIT",
+            "ADOPT",
+            "ALTER",
+            "ARGUE",
+            "ARISE",
+            "AVOID",
+            "BEGIN",
+            "BLAME",
+            "BREAK",
+            "BRING",
+            "BUILD",
+            "BURST",
+            "CAUSE",
+            "CLAIM",
+            "CLEAN",
+            "CLEAR",
+            "CLIMB",
+            "CLOSE",
+            "COUNT",
+            "COVER",
+            "DANCE",
+            "DOUBT",
+            "DRINK",
+            "DRIVE",
+            "ENJOY",
+            "EXIST",
+            "FIGHT",
+            "FOCUS",
+            "FORCE",
+            "IMPLY",
+            "JUDGE",
+            "LAUGH",
+            "LEARN",
+            "POINT",
+            "PROVE",
+            "RAISE",
+            "REACH"
+        };
+        
+        public static object word = possible_choices[Convert.ToInt32(random.randint(0, possible_choices.Count - 1))].ToList();
+        
+        public static object right_place = new List<object>();
+        
+        public static object wrong_place = new List<object>();
+        
+        public static object wrong_letter = new List<object>();
+        
+        public static object word_visual = new List<object> {
+            "_",
+            "_",
+            "_",
+            "_",
+            "_"
+        };
+        
+        public static object lives = 6;
+        
+        public static object tries = 1;
+        
+        public static object guess = false;
+        
+        public static object user_guess = input("Guess the word: ").upper().ToList();
+        
+        public static object zippedComparison = zip(user_guess, word);
+        
+        public static object zippedList = zippedComparison.ToList();
+        
+        static Module() {
+            right_place.append(x);
+            word_visual[index_word] = x;
+            wrong_place.append(x);
+            word_visual[index_word] = "🟡";
+            wrong_letter.append(x);
+            dict.fromkeys(wrong_letter).ToList();
+        }
+        
+   
+    }
+}
